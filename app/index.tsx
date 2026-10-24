@@ -64,13 +64,28 @@ export default function Index() {
             />
           ))}
         </View>
-        <Pressable
-          accessibilityRole="button"
-          onPress={() => pagerRef.current?.setPage(isLast ? 0 : activeIndex + 1)}
-          className="h-14 items-center justify-center rounded-full bg-primary px-6 active:opacity-80"
-        >
-          <Text className="text-label font-inter-semibold text-onPrimary">Next</Text>
-        </Pressable>
+        {!isLast ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => pagerRef.current?.setPage(isLast ? 0 : activeIndex + 1)}
+            className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
+          >
+            <Text className="text-label font-inter-semibold text-lg text-onPrimary">Next</Text>
+          </Pressable>
+        ) : (
+          <View className="gap-y-2">
+            <Pressable className="items-center justify-center rounded-full border-2 border-textPrimary p-4 active:opacity-80">
+              <Text className="text-label font-inter-semibold text-lg text-textPrimary">
+                Sign In
+              </Text>
+            </Pressable>
+            <Pressable className="items-center justify-center rounded-full border-2 border-primary bg-primary p-4 active:opacity-80">
+              <Text className="text-label font-inter-semibold text-lg text-onPrimary">
+                Create Account
+              </Text>
+            </Pressable>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
