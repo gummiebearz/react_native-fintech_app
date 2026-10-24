@@ -32,14 +32,14 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-      <>
-        <StatusBar style="light" />
-        <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: colors.background },
-            }}
-        />
-      </>
+    <>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: colors.background },
+        }}
+      />
+    </>
   );
 }
