@@ -4,19 +4,19 @@ import type { OnboardingSlide } from '@/types/onboarding';
 export const onboardingSlides: OnboardingSlide[] = [
   {
     id: 'send',
-    image: require('@/assets/images/firstOnboarding.png'),
+    image: require('@/assets/images/onboarding/card.png'),
     title: 'Send money in seconds',
     description: 'Pay and request from friends, right from your home screen.',
   },
   {
     id: 'track',
-    image: require('@/assets/images/secondOnboarding.png'),
+    image: require('@/assets/images/onboarding/chart.png'),
     title: 'Know where your money goes',
     description: 'Track expenses, income, and recurring bills in one place.',
   },
   {
     id: 'watch',
-    image: require('@/assets/images/thirdOnboarding.png'),
+    image: require('@/assets/images/onboarding/stock.png'),
     title: 'Keep an eye on the markets',
     description: 'Follow your favorite stocks and crypto in a watchlist.',
   },
