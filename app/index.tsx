@@ -74,12 +74,16 @@ export default function Index() {
           </Pressable>
         ) : (
           <View className="gap-y-2">
-            <Pressable className="items-center justify-center rounded-full border-2 border-textPrimary p-4 active:opacity-80">
+            <Pressable
+                className="items-center justify-center rounded-full bg-onPrimary p-4 active:opacity-80 border-textPrimary border-2"
+            >
               <Text className="text-label font-inter-semibold text-lg text-textPrimary">
                 Sign In
               </Text>
             </Pressable>
-            <Pressable className="items-center justify-center rounded-full border-2 border-primary bg-primary p-4 active:opacity-80">
+            <Pressable
+                className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
+            >
               <Text className="text-label font-inter-semibold text-lg text-onPrimary">
                 Create Account
               </Text>
