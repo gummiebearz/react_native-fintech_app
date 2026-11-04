@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import clsx from 'clsx';
 
 import { onboardingSlides } from '@/constants/onboarding';
@@ -12,10 +12,17 @@ const LAST_INDEX = onboardingSlides.length - 1;
 export default function Index() {
   const pagerRef = useRef<PagerView>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const insets = useSafeAreaInsets();
   const isLast = activeIndex === LAST_INDEX;
 
   return (
-    <SafeAreaView className="flex-1 justify-between bg-background">
+    <View
+      className="flex-1 justify-between bg-background"
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+      }}
+    >
       <View className="h-12 flex-row justify-end px-8">
         {!isLast && (
           <Pressable
@@ -45,7 +52,7 @@ export default function Index() {
               <Text className="text-display font-inter-bold text-4xl text-textPrimary">
                 {slide.title}
               </Text>
-              <Text className="font-inter text-body text-xl text-textSecondary">
+              <Text className="text-body font-inter-regular text-xl text-textSecondary">
                 {slide.description}
               </Text>
             </View>
@@ -75,14 +82,16 @@ export default function Index() {
         ) : (
           <View className="gap-y-2">
             <Pressable
-                className="items-center justify-center rounded-full bg-onPrimary p-4 active:opacity-80 border-textPrimary border-2"
+              className="items-center justify-center rounded-full border-2 border-textPrimary bg-onPrimary p-4 active:opacity-80"
+              accessibilityRole="button"
             >
               <Text className="text-label font-inter-semibold text-lg text-textPrimary">
                 Sign In
               </Text>
             </Pressable>
             <Pressable
-                className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
+              className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
+              accessibilityRole="button"
             >
               <Text className="text-label font-inter-semibold text-lg text-onPrimary">
                 Create Account
@@ -91,6 +100,6 @@ export default function Index() {
           </View>
         )}
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
