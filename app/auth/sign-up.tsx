@@ -25,7 +25,7 @@ export default function SignUp() {
     control,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm({
+  } = useForm<EmailForm>({
     resolver: zodResolver(emailSchema),
     defaultValues: { email: '' },
   });
@@ -34,12 +34,12 @@ export default function SignUp() {
   const sendVerificationCode = async (_email: string) => {
     await new Promise((resolve) => setTimeout(resolve, 3000));
   };
-  const onPress = async ({ email }: EmailForm) => {
+  const onSubmit = async ({ email }: EmailForm) => {
     await sendVerificationCode(email);
     router.push({ pathname: '/auth/verify-email', params: { email } });
   };
 
-  const submitHandler = () => handleSubmit(onPress)();
+  const submitHandler = () => handleSubmit(onSubmit)();
 
   return (
     <CustomScreen scrollable={true} keyboardAvoiding={true} className="pt-10">
@@ -47,7 +47,7 @@ export default function SignUp() {
         <View className="gap-2">
           <Text className="font-inter-bold text-4xl text-default">Create Account</Text>
           <Text className="font-inter-regular text-base text-muted">
-            Enter your email and we'll send you a code to verify
+            Enter your email and we’ll send you a code to verify.
           </Text>
         </View>
 
@@ -71,8 +71,8 @@ export default function SignUp() {
                 onSubmitEditing={submitHandler}
                 accessibilityLabel="Email address"
                 className={clsx(
-                    'h-14 rounded-2xl border bg-surface px-5 font-inter-regular text-lg text-default',
-                    errors.email ? 'border-error' : 'border-border',
+                  'h-14 rounded-2xl border bg-surface px-5 font-inter-regular text-base text-default',
+                  errors.email ? 'border-error' : 'border-border',
                 )}
               />
               {errors.email && (
@@ -93,11 +93,11 @@ export default function SignUp() {
 
       {/* Footer at the bottom of the screen */}
       <View className="flex-1" />
-      <View className="gap-p1 flex-row items-center justify-center gap-x-2 pb-4">
+      <View className="flex-row items-center justify-center gap-2 pb-4">
         <Text className="font-inter-regular text-sm text-muted">Already have an account?</Text>
         <Link href="/auth/sign-in" replace asChild>
           <Pressable accessibilityRole="link" hitSlop={8}>
-            <Text className="txet-base font-inter-semibold text-primary">Sign in</Text>
+            <Text className="font-inter-semibold text-base text-primary">Sign in</Text>
           </Pressable>
         </Link>
       </View>
