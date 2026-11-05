@@ -1,11 +1,19 @@
-import type { ImageSource } from 'expo-image';
+import type { ImageSource, ImageStyle } from 'expo-image';
 import type { ViewProps } from 'react-native';
 
-export type OnboardingSlide = {
+export type Slide = {
   id: string;
   image: ImageSource;
   title: string;
   description: string;
+}
+
+export type OnboardingSlideProps = Omit<ViewProps, 'children'> & Omit<Slide, 'id'> & {
+  className?: string;
+  /** Style for image (like changing height) */
+  imageStyle?: ImageStyle;
+  titleClassName?: string;
+  descriptionClassName?: string;
 };
 
 export type PageDotsProps = Omit<ViewProps, 'children'> & {
