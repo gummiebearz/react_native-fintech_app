@@ -45,6 +45,7 @@ export const CustomButton = ({
         className,
       )}
       {...extras}
+      onPress={onPress}
     >
       {loading ? (
         <ActivityIndicator color={spinnerColors[variant]} />
