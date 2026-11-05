@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import { Image } from 'expo-image';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CustomButton } from '@/components/ui/CustomButton';
 import { PageDots } from '@/components/onboarding/PageDots';
+import { OnboardingSlide} from '@/components/onboarding/OnboardingSlide';
 
 import { onboardingSlides } from '@/constants/onboarding';
 
@@ -43,22 +43,7 @@ export default function Index() {
         scrollEnabled={!isLast} // Block user from swiping backwards if on the last screen
       >
         {onboardingSlides.map((slide) => (
-          <View key={slide.id} collapsable={false} className="flex-1 px-6">
-            <Image
-              source={slide.image}
-              contentFit="contain"
-              accessible={false}
-              style={{ width: '100%', height: '50%' }}
-            />
-            <View className="gap-3 pt-8">
-              <Text className="text-display font-inter-bold text-4xl text-textPrimary">
-                {slide.title}
-              </Text>
-              <Text className="text-body font-inter-regular text-xl text-textSecondary">
-                {slide.description}
-              </Text>
-            </View>
-          </View>
+            <OnboardingSlide key={slide.id} image={slide.image} title={slide.title} description={slide.description} />
         ))}
       </PagerView>
       <View className="gap-6 px-6 pb-6">
