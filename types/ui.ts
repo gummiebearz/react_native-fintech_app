@@ -1,6 +1,6 @@
 import type { PressableProps } from 'react-native';
 
-export type ButtonVariant = 'primary' | 'outline';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'danger';
 
 export type ButtonProps = Omit<PressableProps, 'children'> & {
   title: string;
