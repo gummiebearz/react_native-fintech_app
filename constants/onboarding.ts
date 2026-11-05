@@ -1,7 +1,7 @@
-import type { OnboardingSlide } from '@/types/onboarding';
+import type { Slide } from '@/types/onboarding';
 
 // Images use require() (the Expo way). TypeScript doesn't know `import x from './x.png'`.
-export const onboardingSlides: OnboardingSlide[] = [
+export const onboardingSlides: Slide[] = [
   {
     id: 'send',
     image: require('@/assets/images/onboarding/card.png'),
