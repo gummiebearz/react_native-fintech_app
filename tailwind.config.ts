@@ -1,6 +1,6 @@
 /** @type {import("tailwindcss").Config} */
 import type { Config } from 'tailwindcss';
-import { colors, textColors } from './theme/colors';
+import {colors, textColors} from './theme/colors';
 
 export default {
   // NOTE: Update this to include the paths to all files that contain Nativewind classes.

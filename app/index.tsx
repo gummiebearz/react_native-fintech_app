@@ -4,7 +4,7 @@ import PagerView from 'react-native-pager-view';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { CustomButton } from '@/components/ui/CustomButton';
 import { PageDots } from '@/components/onboarding/PageDots';
-import { OnboardingSlide } from '@/components/onboarding/OnboardingSlide';
+import { OnboardingSlide} from '@/components/onboarding/OnboardingSlide';
 
 import { onboardingSlides } from '@/constants/onboarding';
 
@@ -43,12 +43,7 @@ export default function Index() {
         scrollEnabled={!isLast} // Block user from swiping backwards if on the last screen
       >
         {onboardingSlides.map((slide) => (
-          <OnboardingSlide
-            key={slide.id}
-            image={slide.image}
-            title={slide.title}
-            description={slide.description}
-          />
+            <OnboardingSlide key={slide.id} image={slide.image} title={slide.title} description={slide.description} />
         ))}
       </PagerView>
       <View className="gap-6 px-6 pb-6">

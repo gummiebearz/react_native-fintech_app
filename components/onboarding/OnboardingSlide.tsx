@@ -30,7 +30,9 @@ export const OnboardingSlide = ({
         <Text className={clsx('font-inter-bold text-4xl text-default', titleClassName)}>
           {title}
         </Text>
-        <Text className={clsx('font-inter-regular text-xl text-muted', descriptionClassName)}>
+        <Text
+          className={clsx('font-inter-regular text-xl text-muted', descriptionClassName)}
+        >
           {description}
         </Text>
       </View>
