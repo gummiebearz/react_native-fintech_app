@@ -6,18 +6,24 @@ import type { ButtonProps, ButtonVariant } from '@/types/ui';
 
 const containerStyles: Record<ButtonVariant, string> = {
   primary: 'bg-primary',
+  secondary: 'bg-secondary',
   outline: 'border-2 border-white',
+  danger: 'bg-error',
 };
 
 const labelStyles: Record<ButtonVariant, string> = {
   primary: 'text-onPrimary',
+  secondary: 'text-onSecondary',
   outline: 'text-default',
+  danger: 'text-onPrimary', // dark text on red; swap if the design says white
 };
 
 // ActivityIndicator takes a color value, so it uses raw token
 const spinnerColors: Record<ButtonVariant, string> = {
   primary: colors.onPrimary,
+  secondary: colors.onSecondary,
   outline: textColors.default,
+  danger: colors.onPrimary,
 };
 
 export const CustomButton = ({
