@@ -30,7 +30,16 @@ export default function SignUp() {
     defaultValues: { email: '' },
   });
 
-  const onPress = async () => {};
+  // Fake request so the flow can be tested. Clerk will replace this later
+  const sendVerificationCode = async (_email: string) => {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  };
+  const onPress = async ({ email }: EmailForm) => {
+    await sendVerificationCode(email);
+    router.push({ pathname: '/auth/verify-email', params: { email } });
+  };
+
+  const submitHandler = () => handleSubmit(onPress)();
 
   return (
     <CustomScreen scrollable={true} keyboardAvoiding={true} className="pt-10">
@@ -59,7 +68,7 @@ export default function SignUp() {
                 autoCorrect={false}
                 textContentType="emailAddress"
                 returnKeyType="send"
-                onSubmitEditing={() => {}}
+                onSubmitEditing={submitHandler}
                 accessibilityLabel="Email address"
                 className={clsx(
                   'h-14 rounded-2xl border bg-surface px-5 font-inter-regular text-base text-default',
@@ -75,7 +84,7 @@ export default function SignUp() {
           )}
         />
 
-        <CustomButton title="Continue" loading={isSubmitting} onPress={() => {}} />
+        <CustomButton title="Continue" loading={isSubmitting} onPress={submitHandler} />
 
         <Text className="text-center font-inter-medium text-xs text-muted">
           By continuing, you agree to the Terms of Service and Privacy Policy.
