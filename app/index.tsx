@@ -3,8 +3,8 @@ import { Pressable, Text, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { Image } from 'expo-image';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { clsx } from 'clsx';
 import { CustomButton } from '@/components/ui/CustomButton';
+import { PageDots } from '@/components/onboarding/PageDots';
 
 import { onboardingSlides } from '@/constants/onboarding';
 
@@ -62,17 +62,18 @@ export default function Index() {
         ))}
       </PagerView>
       <View className="gap-6 px-6 pb-6">
-        <View className="flex-row items-center justify-center gap-x-2">
-          {Array.from({ length: onboardingSlides.length }).map((_, index) => (
-            <View
-              key={index}
-              className={clsx(
-                'h-2 rounded-full',
-                index === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-textDisabled',
-              )}
-            />
-          ))}
-        </View>
+        {/*<View className="flex-row items-center justify-center gap-x-2">*/}
+        {/*  {Array.from({ length: onboardingSlides.length }).map((_, index) => (*/}
+        {/*    <View*/}
+        {/*      key={index}*/}
+        {/*      className={clsx(*/}
+        {/*        'h-2 rounded-full',*/}
+        {/*        index === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-textDisabled',*/}
+        {/*      )}*/}
+        {/*    />*/}
+        {/*  ))}*/}
+        {/*</View>*/}
+        <PageDots count={onboardingSlides.length} activeIndex={activeIndex} hidden={isLast} />
         {!isLast ? (
           <CustomButton
             title="Next"
@@ -81,8 +82,17 @@ export default function Index() {
           />
         ) : (
           <View className="gap-y-2">
-            <CustomButton title='Sign In' loading={false} onPress={() => console.log("Sign In pressed")} variant='outline' />
-            <CustomButton title='Create Account' loading={false} onPress={() => console.log("Create Account pressed")} />
+            <CustomButton
+              title="Sign In"
+              loading={false}
+              onPress={() => console.log('Sign In pressed')}
+              variant="outline"
+            />
+            <CustomButton
+              title="Create Account"
+              loading={false}
+              onPress={() => console.log('Create Account pressed')}
+            />
           </View>
         )}
       </View>
