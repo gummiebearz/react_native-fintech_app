@@ -42,7 +42,7 @@ export default function SignUp() {
   const submitHandler = () => handleSubmit(onSubmit)();
 
   return (
-    <CustomScreen scrollable={true} keyboardAvoiding={true} className="pt-10">
+    <CustomScreen scrollable={true} keyboardAvoiding={true}>
       <View className="gap-6">
         <View className="gap-2">
           <Text className="font-inter-bold text-4xl text-default">Create Account</Text>
