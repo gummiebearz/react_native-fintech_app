@@ -1,4 +1,4 @@
-import type { PressableProps } from 'react-native';
+import type { PressableProps, ViewProps } from 'react-native';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'danger';
 
@@ -11,3 +11,11 @@ export type ButtonProps = Omit<PressableProps, 'children'> & {
   /** Extra classes for the label text */
   textClassName?: string;
 };
+
+export type ScreenProps = ViewProps & {
+  className?: string;
+  /** Wrap content in a ScrollView, for forms or long lists */
+  scrollable?: boolean;
+  /** Lift content above the keyboard */
+  keyboardAvoidingView?: boolean;
+}
