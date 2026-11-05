@@ -1,23 +1,23 @@
 import { clsx } from 'clsx';
 import { ActivityIndicator, Pressable, Text } from 'react-native';
 
-import { colors } from '@/theme/colors';
+import { colors, textColors } from '@/theme/colors';
 import type { ButtonProps, ButtonVariant } from '@/types/ui';
 
 const containerStyles: Record<ButtonVariant, string> = {
   primary: 'bg-primary',
-  outline: 'border-2 border-textPrimary',
+  outline: 'border-2 border-white',
 };
 
 const labelStyles: Record<ButtonVariant, string> = {
   primary: 'text-onPrimary',
-  outline: 'text-textPrimary',
+  outline: 'text-default',
 };
 
 // ActivityIndicator takes a color value, so it uses raw token
 const spinnerColors: Record<ButtonVariant, string> = {
-  primary: colors.primary,
-  outline: colors.textPrimary,
+  primary: colors.onPrimary,
+  outline: textColors.default,
 };
 
 export const CustomButton = ({
@@ -45,7 +45,7 @@ export const CustomButton = ({
         className,
       )}
       {...extras}
-      onPress={onPress}
+        onPress={onPress}
     >
       {loading ? (
         <ActivityIndicator color={spinnerColors[variant]} />

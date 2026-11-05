@@ -27,11 +27,11 @@ export const OnboardingSlide = ({
         style={[{ width: '100%', height: '50%' }, imageStyle]}
       />
       <View className="gap-3 pt-8">
-        <Text className={clsx('font-inter-bold text-4xl text-textPrimary', titleClassName)}>
+        <Text className={clsx('font-inter-bold text-4xl text-default', titleClassName)}>
           {title}
         </Text>
         <Text
-          className={clsx('font-inter-regular text-xl text-textSecondary', descriptionClassName)}
+          className={clsx('font-inter-regular text-xl text-muted', descriptionClassName)}
         >
           {description}
         </Text>

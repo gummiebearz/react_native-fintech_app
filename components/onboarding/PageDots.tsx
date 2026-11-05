@@ -28,7 +28,7 @@ export const PageDots = ({
           key={index}
           className={clsx(
             'h-2 rounded-full',
-            index === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-textDisabled',
+            index === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-disabled',
           )}
         />
       ))}

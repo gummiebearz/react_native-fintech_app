@@ -31,7 +31,7 @@ export default function Index() {
             hitSlop={12}
             onPress={() => pagerRef.current?.setPage(LAST_INDEX)}
           >
-            <Text className="text-body font-inter-semibold text-textSecondary">Skip</Text>
+            <Text className="text-body font-inter-semibold text-muted">Skip</Text>
           </Pressable>
         )}
       </View>
