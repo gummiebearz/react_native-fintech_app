@@ -19,7 +19,7 @@ export const CustomScreen = ({
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ flexGrow: 1 }}
     >
-      <View className={clsx('flex-1 px-6 pt-2', className)} {...extras}>
+      <View className={clsx('flex-1 px-6 pt-10', className)} {...extras}>
         {children}
       </View>
     </ScrollView>
