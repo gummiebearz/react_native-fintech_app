@@ -71,7 +71,7 @@ export default function SignUp() {
                 onSubmitEditing={submitHandler}
                 accessibilityLabel="Email address"
                 className={clsx(
-                  'h-14 rounded-2xl border bg-surface px-5 font-inter-regular text-lg text-default',
+                  'h-14 rounded-2xl border bg-surface px-5 font-inter-regular text- text-default',
                   errors.email ? 'border-error' : 'border-border',
                 )}
               />
