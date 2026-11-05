@@ -18,4 +18,4 @@ export type ScreenProps = ViewProps & {
   scrollable?: boolean;
   /** Lift content above the keyboard */
   keyboardAvoiding?: boolean;
-}
+};
