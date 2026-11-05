@@ -40,6 +40,7 @@ export default function Index() {
         style={{ flex: 1 }}
         initialPage={0}
         onPageSelected={(e) => setActiveIndex(e.nativeEvent.position)}
+        scrollEnabled={!isLast} // Block user from swiping backwards if on the last screen
       >
         {onboardingSlides.map((slide) => (
           <View key={slide.id} collapsable={false} className="flex-1 px-6">
