@@ -3,7 +3,8 @@ import { Pressable, Text, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { Image } from 'expo-image';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
+import { CustomButton } from '@/components/ui/CustomButton';
 
 import { onboardingSlides } from '@/constants/onboarding';
 
@@ -72,31 +73,15 @@ export default function Index() {
           ))}
         </View>
         {!isLast ? (
-          <Pressable
-            accessibilityRole="button"
+          <CustomButton
+            title="Next"
             onPress={() => pagerRef.current?.setPage(isLast ? 0 : activeIndex + 1)}
-            className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
-          >
-            <Text className="text-label font-inter-semibold text-lg text-onPrimary">Next</Text>
-          </Pressable>
+            loading={false}
+          />
         ) : (
           <View className="gap-y-2">
-            <Pressable
-              className="items-center justify-center rounded-full border-2 border-textPrimary bg-onPrimary p-4 active:opacity-80"
-              accessibilityRole="button"
-            >
-              <Text className="text-label font-inter-semibold text-lg text-textPrimary">
-                Sign In
-              </Text>
-            </Pressable>
-            <Pressable
-              className="items-center justify-center rounded-full bg-primary p-4 active:opacity-80"
-              accessibilityRole="button"
-            >
-              <Text className="text-label font-inter-semibold text-lg text-onPrimary">
-                Create Account
-              </Text>
-            </Pressable>
+            <CustomButton title='Sign In' loading={false} onPress={() => console.log("Sign In pressed")} variant='outline' />
+            <CustomButton title='Create Account' loading={false} onPress={() => console.log("Create Account pressed")} />
           </View>
         )}
       </View>
