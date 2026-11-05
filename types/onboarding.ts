@@ -6,15 +6,16 @@ export type Slide = {
   image: ImageSource;
   title: string;
   description: string;
-}
-
-export type OnboardingSlideProps = Omit<ViewProps, 'children'> & Omit<Slide, 'id'> & {
-  className?: string;
-  /** Style for image (like changing height) */
-  imageStyle?: ImageStyle;
-  titleClassName?: string;
-  descriptionClassName?: string;
 };
+
+export type OnboardingSlideProps = Omit<ViewProps, 'children'> &
+  Omit<Slide, 'id'> & {
+    className?: string;
+    /** Style for image (like changing height) */
+    imageStyle?: ImageStyle;
+    titleClassName?: string;
+    descriptionClassName?: string;
+  };
 
 export type PageDotsProps = Omit<ViewProps, 'children'> & {
   /** Total number of pages */
