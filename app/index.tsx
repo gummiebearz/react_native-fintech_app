@@ -52,19 +52,16 @@ export default function Index() {
           <CustomButton
             title="Next"
             onPress={() => pagerRef.current?.setPage(isLast ? 0 : activeIndex + 1)}
-            loading={false}
           />
         ) : (
           <View className="gap-y-2">
             <CustomButton
               title="Sign In"
-              loading={false}
               onPress={() => console.log('Sign In pressed')}
               variant="outline"
             />
             <CustomButton
               title="Create Account"
-              loading={false}
               onPress={() => console.log('Create Account pressed')}
             />
           </View>
