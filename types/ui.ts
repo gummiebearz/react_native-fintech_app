@@ -17,5 +17,5 @@ export type ScreenProps = ViewProps & {
   /** Wrap content in a ScrollView, for forms or long lists */
   scrollable?: boolean;
   /** Lift content above the keyboard */
-  keyboardAvoidingView?: boolean;
+  keyboardAvoiding?: boolean;
 }
