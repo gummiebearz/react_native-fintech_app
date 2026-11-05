@@ -62,17 +62,6 @@ export default function Index() {
         ))}
       </PagerView>
       <View className="gap-6 px-6 pb-6">
-        {/*<View className="flex-row items-center justify-center gap-x-2">*/}
-        {/*  {Array.from({ length: onboardingSlides.length }).map((_, index) => (*/}
-        {/*    <View*/}
-        {/*      key={index}*/}
-        {/*      className={clsx(*/}
-        {/*        'h-2 rounded-full',*/}
-        {/*        index === activeIndex ? 'w-6 bg-primary' : 'w-2 bg-textDisabled',*/}
-        {/*      )}*/}
-        {/*    />*/}
-        {/*  ))}*/}
-        {/*</View>*/}
         <PageDots count={onboardingSlides.length} activeIndex={activeIndex} hidden={isLast} />
         {!isLast ? (
           <CustomButton
