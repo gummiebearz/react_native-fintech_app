@@ -24,7 +24,7 @@ export const CustomScreen = ({
       </View>
     </ScrollView>
   ) : (
-    <View className={clsx('flex-1 px-6 pt-2', className)} {...extras}>
+    <View className={clsx('flex-1 px-6 pt-10', className)} {...extras}>
       {children}
     </View>
   );
